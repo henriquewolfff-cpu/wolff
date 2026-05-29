@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>WolffTech | Loja de Tecnologia</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    body {
+      background-color: #0d0d0d;
+      color: #ffffff;
+    }
+
+    header {
+      width: 100%;
+      padding: 20px 8%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background: #111111;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      border-bottom: 1px solid #2a2a2a;
+    }
+
+    .logo {
+      font-size: 24px;
+      font-weight: bold;
+      color: #ff1e1e;
+      letter-spacing: 1px;
+    }
+
+    nav a {
+      color: #ffffff;
+      text-decoration: none;
+      margin-left: 25px;
+      font-size: 15px;
+      transition: 0.3s;
+    }
+
+    nav a:hover {
+      color: #ff1e1e;
+    }
+
+    .hero {
+      min-height: 90vh;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 60px 8%;
+      gap: 40px;
+      background: radial-gradient(circle at right, #3a0000, #0d0d0d 55%);
+    }
+
+    .hero-text {
+      max-width: 560px;
+    }
+
+    .hero-text h1 {
+      font-size: 52px;
+      line-height: 1.1;
+      margin-bottom: 20px;
+    }
+
+    .hero-text h1 span {
+      color: #ff1e1e;
+    }
+
+    .hero-text p {
+      color: #cccccc;
+      font-size: 18px;
+      line-height: 1.6;
+      margin-bottom: 30px;
+    }
+
+    .btn {
+      display: inline-block;
+      background: #ff1e1e;
+      color: #ffffff;
+      padding: 14px 28px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: bold;
+      transition: 0.3s;
+    }
+
+    .btn:hover {
+      background: #c90000;
+      transform: translateY(-3px);
+    }
+
+    .hero-card {
+      width: 360px;
+      background: #151515;
+      border: 1px solid #2a2a2a;
+      border-radius: 18px;
+      padding: 30px;
+      box-shadow: 0 0 40px rgba(255, 0, 0, 0.18);
+      text-align: center;
+    }
+
+    .hero-card .icon {
+      font-size: 80px;
+      margin-bottom: 20px;
+    }
+
+    .hero-card h2 {
+      color: #ff1e1e;
+      margin-bottom: 15px;
+    }
+
+    .hero-card p {
+      color: #bbbbbb;
+      line-height: 1.5;
+    }
+
+    section {
+      padding: 70px 8%;
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: 36px;
+      margin-bottom: 15px;
+    }
+
+    .section-subtitle {
+      text-align: center;
+      color: #bdbdbd;
+      margin-bottom: 45px;
+    }
+
+    .products {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 25px;
+    }
+
+    .product-card {
+      background: #151515;
+      border: 1px solid #292929;
+      border-radius: 16px;
+      padding: 25px;
+      text-align: center;
+      transition: 0.3s;
+    }
+
+    .product-card:hover {
+      transform: translateY(-8px);
+      border-color: #ff1e1e;
+      box-shadow: 0 0 25px rgba(255, 0, 0, 0.15);
+    }
+
+    .product-card .product-icon {
+      font-size: 58px;
+      margin-bottom: 18px;
+    }
+
+    .product-card h3 {
+      margin-bottom: 10px;
+      font-size: 20px;
+    }
+
+    .product-card p {
+      color: #bdbdbd;
+      font-size: 14px;
+      margin-bottom: 18px;
+      line-height: 1.5;
+    }
+
+    .price {
+      color: #ff1e1e;
+      font-weight: bold;
+      font-size: 20px;
+      margin-bottom: 15px;
+    }
+
+    .small-btn {
+      display: inline-block;
+      padding: 10px 18px;
+      background: transparent;
+      border: 1px solid #ff1e1e;
+      color: #ff1e1e;
+      border-radius: 6px;
+      text-decoration: none;
+      transition: 0.3s;
+      font-size: 14px;
+    }
+
+    .small-btn:hover {
+      background: #ff1e1e;
+      color: #ffffff;
+    }
+
+    .about {
+      background: #111111;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 40px;
+      align-items: center;
+    }
+
+    .about h2 {
+      font-size: 38px;
+      margin-bottom: 20px;
+    }
+
+    .about h2 span {
+      color: #ff1e1e;
+    }
+
+    .about p {
+      color: #cfcfcf;
+      line-height: 1.7;
+      margin-bottom: 15px;
+    }
+
+    .benefits {
+      display: grid;
+      gap: 15px;
+    }
+
+    .benefit {
+      background: #191919;
+      padding: 18px;
+      border-radius: 12px;
+      border-left: 4px solid #ff1e1e;
+    }
+
+    .contact {
+      text-align: center;
+    }
+
+    .contact p {
+      color: #cccccc;
+      margin-bottom: 25px;
+    }
+
+    footer {
+      padding: 25px 8%;
+      text-align: center;
+      background: #080808;
+      color: #888888;
+      border-top: 1px solid #222222;
+    }
+
+    .menu-btn {
+      display: none;
+      background: none;
+      border: none;
+      color: #ffffff;
+      font-size: 28px;
+      cursor: pointer;
+    }
+
+    @media (max-width: 900px) {
+      .hero {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .hero-text h1 {
+        font-size: 40px;
+      }
+
+      .hero-card {
+        width: 100%;
+        max-width: 380px;
+      }
+
+      .products {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .about {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    @media (max-width: 650px) {
+      header {
+        padding: 18px 6%;
+      }
+
+      .menu-btn {
+        display: block;
+      }
+
+      nav {
+        display: none;
+        position: absolute;
+        top: 70px;
+        right: 6%;
+        background: #151515;
+        padding: 20px;
+        border-radius: 12px;
+        border: 1px solid #2a2a2a;
+      }
+
+      nav.active {
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+      }
+
+      nav a {
+        margin-left: 0;
+      }
+
+      .hero-text h1 {
+        font-size: 34px;
+      }
+
+      .products {
+        grid-template-columns: 1fr;
+      }
+
+      .section-title {
+        font-size: 30px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">WolffTech</div>
+    <button class="menu-btn" onclick="toggleMenu()">☰</button>
+    <nav id="menu">
+      <a href="#home">Início</a>
+      <a href="#produtos">Produtos</a>
+      <a href="#sobre">Sobre</a>
+      <a href="#contato">Contato</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="hero-text">
+        <h1>Tecnologia para transformar seu <span>setup</span>.</h1>
+        <p>
+          Produtos modernos, design premium e soluções pensadas para quem busca mais desempenho, conforto e estilo no dia a dia.
+        </p>
+        <a href="#produtos" class="btn">Ver produtos</a>
+      </div>
+
+      <div class="hero-card">
+        <div class="icon">🐺</div>
+        <h2>Performance e confiança</h2>
+        <p>Uma experiência visual moderna para destacar produtos tecnológicos com presença e profissionalismo.</p>
+      </div>
+    </section>
+
+    <section id="produtos">
+      <h2 class="section-title">Produtos em Destaque</h2>
+      <p class="section-subtitle">Itens selecionados para melhorar seu setup.</p>
+
+      <div class="products">
+        <div class="product-card">
+          <div class="product-icon">🎧</div>
+          <h3>Headset Gamer</h3>
+          <p>Áudio imersivo, conforto e visual moderno para jogos e trabalho.</p>
+          <div class="price">R$ 149,90</div>
+          <a href="#contato" class="small-btn">Tenho interesse</a>
+        </div>
+
+        <div class="product-card">
+          <div class="product-icon">🪑</div>
+          <h3>Cadeira Gamer</h3>
+          <p>Mais conforto e ergonomia para longas horas no computador.</p>
+          <div class="price">R$ 699,90</div>
+          <a href="#contato" class="small-btn">Tenho interesse</a>
+        </div>
+
+        <div class="product-card">
+          <div class="product-icon">📽️</div>
+          <h3>Projetor Smart</h3>
+          <p>Transforme qualquer ambiente em uma experiência de cinema.</p>
+          <div class="price">R$ 399,90</div>
+          <a href="#contato" class="small-btn">Tenho interesse</a>
+        </div>
+
+        <div class="product-card">
+          <div class="product-icon">🚁</div>
+          <h3>Drone 4K</h3>
+          <p>Capture imagens aéreas com praticidade e estilo.</p>
+          <div class="price">R$ 299,90</div>
+          <a href="#contato" class="small-btn">Tenho interesse</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="about" id="sobre">
+      <div>
+        <h2>Sobre a <span>WolffTech</span></h2>
+        <p>
+          A WolffTech é uma loja fictícia criada para demonstrar habilidades em desenvolvimento web, identidade visual e criação de páginas responsivas.
+        </p>
+        <p>
+          O projeto tem foco em apresentação profissional, organização visual, usabilidade e conversão para contato.
+        </p>
+      </div>
+
+      <div class="benefits">
+        <div class="benefit">✔ Layout responsivo para celular, tablet e desktop</div>
+        <div class="benefit">✔ Design moderno com identidade visual forte</div>
+        <div class="benefit">✔ Cards de produtos com chamada para ação</div>
+        <div class="benefit">✔ Estrutura simples e fácil de editar</div>
+      </div>
+    </section>
+
+    <section class="contact" id="contato">
+      <h2 class="section-title">Entre em Contato</h2>
+      <p>Gostou de algum produto? Fale conosco pelo WhatsApp.</p>
+      <a href="https://wa.me/5500000000000" target="_blank" class="btn">Chamar no WhatsApp</a>
+    </section>
+  </main>
+
+  <footer>
+    <p>© 2026 WolffTech. Projeto desenvolvido para portfólio.</p>
+  </footer>
+
+  <script>
+    function toggleMenu() {
+      const menu = document.getElementById('menu');
+      menu.classList.toggle('active');
+    }
+  </script>
+</body>
+</html>
